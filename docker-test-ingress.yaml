@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: docker-test-gateway
+  name: test-gateway
 spec:
   selector:
     istio: ingressgateway # use istio default controller
@@ -21,13 +21,13 @@ spec:
   hosts:
   - "*"
   gateways:
-  - docker-test-gateway
+  - test-gateway
   http:
   - match:
-  - uri:
+    - uri:
         exact: /docker-test
     - uri:
-        prefix: /api/v1/docker-test
+        prefix: /api/v1/products
     route:
     - destination:
         host: docker-test
