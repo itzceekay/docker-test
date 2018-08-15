@@ -8,10 +8,8 @@ metadata:
     run: docker-test
 spec:
   ports:
-  - port: 80
-    targetPort: 8001
+  - port: 8001
     name: http
-  type: LoadBalancer  
   selector:
     app: docker-test
 ---
